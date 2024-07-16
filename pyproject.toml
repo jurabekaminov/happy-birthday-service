@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "birthday-service"
+version = "0.1.0"
+description = ""
+authors = ["Jurabek Aminov <dzhurabek.aminov@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = {extras = ["standart"], version = "^0.27.0.post1"}
+fastapi = "^0.109.2"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.25"}
+pydantic-settings = "^2.1.0"
+email-validator = "^2.1.0.post1"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+asyncpg = "^0.29.0"
+python-multipart = "^0.0.9"
+alembic = "^1.13.1"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+bcrypt = "4.0.1"
+apscheduler = "^3.10.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.1"
+pytest-asyncio = "^0.23.5"
+pytest-dotenv = "^0.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+env_override_existing_values = 1
+pythonpath = [".", "src"]
+asyncio_mode="auto"
+env_files = [".env.test"]
